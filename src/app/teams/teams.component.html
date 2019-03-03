@@ -1,0 +1,20 @@
+<h2> World Cups Teams  </h2>
+
+
+<ul class="heroes">
+    <li *ngFor="let team of mockTeams"
+    [class.selected]="team === selectedTeams"
+        (click)="onSelect(team)">
+      <span class="badge">{{team.id}}</span> {{team.name}}   
+    </li>
+  </ul>
+<div>
+
+    <div *ngIf="selectedTeams">
+<h2>{{selectedTeams.name | uppercase}} Details</h2>  
+  <label>Name:
+    <input [(ngModel)]="selectedTeams.name" placeholder="Team Name">
+  </label>
+</div>
+</div>
+
