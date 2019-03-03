@@ -1,7 +1,7 @@
 /* HeroesComponent's private CSS styles */
 .selected {
-    background-color: #CFD8DC !important;
-    color: white;
+    background-color: rgb(129, 233, 69) !important;
+    color: rgb(15, 2, 2);
   }
   .heroes {
     margin: 0 0 2em 0;
