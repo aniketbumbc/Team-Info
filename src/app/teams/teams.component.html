@@ -8,13 +8,6 @@
       <span class="badge">{{team.id}}</span> {{team.name}}   
     </li>
   </ul>
-<div>
-  
-    <div *ngIf="selectedTeams">
-<h2>{{selectedTeams.name | uppercase}} Details</h2>  
-  <label>Name:
-    <input [(ngModel)]="selectedTeams.name" placeholder="Team Name">
-  </label>
-</div>
-</div>
+
+  <app-team-details [team] ="selectedTeams"></app-team-details>
 
