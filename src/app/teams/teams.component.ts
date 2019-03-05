@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Teams} from  '../teams';
 import {TEAMS} from '../mock-teams';
+import {TeamService} from '../team.service';
 
 @Component({
   selector: 'app-teams',
@@ -9,16 +10,24 @@ import {TEAMS} from '../mock-teams';
 })
 export class TeamsComponent implements OnInit {
 
-mockTeams = TEAMS;
+
+ teams:Teams[];
+
 selectedTeams: Teams;
+
 onSelect(team:Teams):void{
   this.selectedTeams = team;
 }
 
 
-  constructor() { }
+  constructor(private teamService: TeamService) {}
+
+  getTeams():void{
+    this.teamService.getTeams().subscribe(teams => this.teams = teams);
+  }
 
   ngOnInit() {
+    this.getTeams();
   }
 
 }

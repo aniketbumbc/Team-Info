@@ -2,7 +2,7 @@
 
 
 <ul class="heroes">
-    <li *ngFor="let team of mockTeams"
+    <li *ngFor="let team of teams"
     [class.selected]="team === selectedTeams"
         (click)="onSelect(team)">
       <span class="badge">{{team.id}}</span> {{team.name}}   
