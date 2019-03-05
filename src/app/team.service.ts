@@ -9,11 +9,17 @@ import{MessagesService} from './messages.service';
   providedIn: 'root'
 })
 export class TeamService {
+  constructor(private messageService: MessagesService) { }
 
-  getTeams():Observable<Teams[]>{
-    this.messageService.add('Team Service: Featched Heroes');
-    return of (TEAMS);
+  getTeams(): Observable<Teams[]>{
+    this.messageService.add('Team Service: Featched Teams featch');
+    return of(TEAMS);
   }
 
-  constructor(private messageService: MessagesService) { }
+  getTeam(id: number):Observable<Teams>{
+    this.messageService.add('Team Service: Featched Heroes id = ' +id);
+    return of (TEAMS.find(team => team.id === id));
+  }
+
+
 }

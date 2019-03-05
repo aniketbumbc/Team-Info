@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Teams} from  '../teams';
-import {TEAMS} from '../mock-teams';
-import {TeamService} from '../team.service';
+import { Teams } from '../teams';
+import { TEAMS } from '../mock-teams';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-teams',
@@ -11,18 +11,10 @@ import {TeamService} from '../team.service';
 export class TeamsComponent implements OnInit {
 
 
- teams:Teams[];
+  teams: Teams[];
+  constructor(private teamService: TeamService) { }
 
-selectedTeams: Teams;
-
-onSelect(team:Teams):void{
-  this.selectedTeams = team;
-}
-
-
-  constructor(private teamService: TeamService) {}
-
-  getTeams():void{
+  getTeams(): void {
     this.teamService.getTeams().subscribe(teams => this.teams = teams);
   }
 
