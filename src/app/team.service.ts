@@ -52,6 +52,23 @@ export class TeamService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  addTeam(team:Teams):Observable<Teams>{
+    return this.http.post<Teams>(this.teamsUrl,team,TeamService.httpOptions)
+    .pipe(
+      tap((newTeam:Teams)=> this.log (`added hero w/ id=${newTeam.id}`)),
+      catchError(this.handleError<Teams>('addTeam'))
+  );
+}
+
+deleteHero(team:Teams|number):Observable<Teams>{
+  const id = typeof team === 'number' ? team:team.id;
+  const url = `${this.teamsUrl}/${id}`;
+  return this.http.delete<Teams>(url,TeamService.httpOptions).pipe(
+    tap(_ => this.log(`deleted team id=${id}`)),
+        catchError(this.handleError<Teams>('deleteHero')));
+
+}
+
 
 
 }
