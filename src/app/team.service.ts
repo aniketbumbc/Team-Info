@@ -69,6 +69,15 @@ deleteHero(team:Teams|number):Observable<Teams>{
 
 }
 
+searchTeam(term:string):Observable<Teams[]>{
+  if(!term.trim()){
+    return of([]);
+  }
+return this.http.get<Teams[]>(`${this.teamsUrl}/?name=${term}`).pipe(
+  tap(_ => this.log ('found team matching ' +term)),
+  catchError(this.handleError<Teams[]>('searchTeam')));
+}
+
 
 
 }

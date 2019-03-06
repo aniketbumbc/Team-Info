@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { TeamSearchComponent } from './team-search/team-search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InMemoryDataService }  from './in-memory-data.service';
     TeamsComponent,
     TeamDetailsComponent,
     MessagesComponent,
-    DashboardComponent   
+    DashboardComponent,
+    TeamSearchComponent   
   ],
   imports: [
     BrowserModule,
