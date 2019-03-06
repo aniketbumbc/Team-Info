@@ -31,4 +31,9 @@ export class TeamDetailsComponent implements OnInit {
   goBack():void{
     this.location.back();
   }
+  save():void{
+    this.teamService.updateTeam(this.team).
+    subscribe(() => this.goBack());
+
+  }
 }
